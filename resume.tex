@@ -1,0 +1,205 @@
+% Author: Cam Patten
+% Work based on: 
+% https://github.com/sb2nov/resume
+% https://github.com/jakegut/resume 
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[empty]{fullpage} % removes header and footer
+\usepackage{titlesec} % formats sections
+\usepackage[usenames,dvipsnames]{color} % colors section text
+\usepackage{enumitem} % formats lists
+\usepackage[hidelinks]{hyperref} % formats link
+\usepackage{fancyhdr} % formats page style
+\usepackage[english]{babel} % sets language
+\usepackage{tabularx} % formats tables
+\usepackage{helvet} % font
+
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\bulletpoint}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\heading}[8]{
+    \begin{center}
+        \textbf{\Huge \scshape #1} \\ \vspace{1pt}
+        \small #2 $|$ \href{#3}{#4} $|$  \href{#5}{#6} $|$ \href{#7}{#8}
+    \end{center}
+}
+
+\newcommand{\education}[3]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+    \end{tabular*}
+    \textit{\small#3} \vspace{-7pt}
+}
+
+\newcommand{\job}[4]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\project}[4]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+        \small\textbf{#1} $|$ #2 & \href{#3}{#4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\skill}[2]{
+    \small{\item{
+        \textbf{#1:} #2 \vspace{-9pt}
+    }}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\educationListStart}{\begin{itemize}[leftmargin=0.00in, label={}]}
+\newcommand{\educationListEnd}{\end{itemize}}
+
+\newcommand{\skillliststart}{\begin{itemize}[leftmargin=0.00in, label={}]}
+\newcommand{\skilllistend}{\end{itemize}}
+
+\newcommand{\jobliststart}{\begin{itemize}[leftmargin=0.00in, label={}]}
+\newcommand{\joblistend}{\end{itemize}}
+
+\newcommand{\projectliststart}{\begin{itemize}[leftmargin=0.00in, label={}]}
+\newcommand{\projectlistend}{\end{itemize}}
+
+\newcommand{\bulletpointListStart}{\begin{itemize}}
+\newcommand{\bulletpointListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+\heading
+    {Cam Patten}
+    {123-456-7890} 
+    {mailto:email@company.com}
+    {email@company.com}
+    {https://www.linkedin.com/in/name/}
+    {linkedin.com/in/name}
+    {https://github.com/name}
+    {github.com/name}
+    
+\section{Education}
+    \educationListStart
+        \education
+        {State University}
+        {August 2018 -- May 2023}
+        {B.S. in Business Admin: Information Systems and Business Analytics, Finance; GPA:  3.6}
+    \educationListEnd
+
+\section{Skills}
+    \skillliststart
+        \skill 
+        {Languages}
+        {Python, Kotlin, C\#, Java, JavaScript, TypeScript, SQL, R}
+        \skill 
+        {Frameworks \& Libraries}
+        {.NET, MAUI, React, Espresso, Pandas, Scikit-learn, NumPy, Matplotlib}
+        \skill 
+        {Databases}
+        {MySQL, Microsoft SQL Server, MongoDB}
+        \skill
+        {Developer Tools}
+        {Git, AWS (EC2, CodePipeline, Lampda), Jenkins}
+    \skilllistend
+
+\section{Experience}
+    \jobliststart
+        \job
+        {Data Engineer (Co-op)}
+        {January 2023 -- May 2023}
+        {International Confectionery Company}
+        {Remote}
+        \bulletpointListStart
+            \bulletpoint{Worked in a team of four to save 6 hours per week by creating a pipeline and scripts to automate the cleaning and transformation of 10k+ rows of production data using Python and Pandas}
+            \bulletpoint{Reduced data errors from 600+ to $<$100 rows per week by implementing data quality tests and logging unexpected deviations for debugging, further increasing data usability and relevance} 
+            \bulletpoint{Reduced BI dashboard query execution time by optimizing SQL query performance, reducing complexity, and caching in memory; These efforts also enhanced dashboard responsiveness, improving the UX for decision-makers}
+            \bulletpoint{Documented pipeline architecture, data flows, and transformation processes to smooth knowledge transfer at hand-off}
+        \bulletpointListEnd
+        \job
+        {Purchasing Manager}
+        {March 2020 -- November 2023}
+        {Small Business Name}
+        {Town Name, EX}
+        \bulletpointListStart
+            \bulletpoint{Managed procurement activities for a \$300k annual budget, including maintaining relationships with vendors, sourcing new merchandise, and tracking/receiving shipments as they arrived} 
+            \bulletpoint{Reduced out-of-stock cycle time from 21 to 15 days by incorporating early feedback reports into the reorder process} 
+        \bulletpointListEnd
+    \joblistend
+
+\section{Projects}
+    \jobliststart
+        \project
+        {Offline Home Inventory App} 
+        {Kotlin, Java, Gradle, SQLite}
+        {https://github.com/name/project-name}
+        {github.com/../project-name}
+        \bulletpointListStart
+            \bulletpoint{Developed and deployed an Android app to Google Play, achieving 100+ downloads and a 4.8 average user rating}
+            \bulletpoint{Improved code quality by writing and integrating automated JUnit and Espresso test suites into CI pipeline with GitHub Actions, reducing manual testing hours and time lost rolling back broken deployments}
+            \bulletpoint{Enhanced UI accessibility by implementing support for screen readers, RTL displays, CVD-compatible color themes, and ensuring compliance with W3C's level A content accessibility guidelines, promoting inclusivity} 
+            \bulletpoint{Automated API documentation and test coverage report generation using KDocs, Dokka, GitHub Actions, JaCoCo, and Codecov; Scheduled weekly runs, reducing manual work hours and ensuring consistency} 
+        \bulletpointListEnd
+          
+        \project
+        {Offline Multi-platform Home Inventory App} 
+        {C\#, .NET, MAUI, SQLite}
+        {https://github.com/name/project-name}
+        {github.com/../project-name}
+        \bulletpointListStart
+            \bulletpoint{Developed app using MVVM architecture pattern, improving both the maintainability and testability of the code while enhancing the reusability of components between platforms, reducing required development time}
+            \bulletpoint{Implemented security best practices, including validating and sanitizing user inputs, to mitigate vulnerabilities exploited by attacks like SQL injections, enhancing the app's resistance against threat actors} 
+        \bulletpointListEnd
+          
+        \project
+        {Airbnb machine learning models}
+        {R, ggplot2, dplyr, geosphere}{https://docs.google.com/document/d/1MGqQa2js63Aq8d81IvMLZk7Bu9_z6ZP6aDe3SeCATIc/edit?usp=sharing}
+        {Findings Paper}
+        \bulletpointListStart
+            \bulletpoint{Trained machine learning models in R to analyze 40k+ NYC Airbnb listings, identifying and validating which factors most influenced listing booking rates} 
+            \bulletpoint{Achieved 90.53\% specificity on validation dataset using extreme gradient boosting model, correctly predicting high booking rate properties 58\% of the time} 
+        \bulletpointListEnd
+    
+        \project
+        {NBA machine learning models}
+        {Python, Pandas, Scikit-learn}        
+        {https://github.com/name/project-name}
+        {github.com/../project-name}
+        \bulletpointListStart
+            \bulletpoint{Trained machine learning models in Python on 9k+ scraped box scores to predict wins, cleaned data with Pandas}
+            \bulletpoint{Achieved 57.8\% accuracy with ridge-regression prediction model, increased accuracy to 64.3\% by improving classification and cross-validation behavior using time series splits from Scikit-learn}
+        \bulletpointListEnd
+    \joblistend
+\end{document}
